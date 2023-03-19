@@ -322,6 +322,11 @@ th {
   text-align: -webkit-match-parent;
 }
 
+.whatsapp-icon {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
 thead,
 tbody,
 tfoot,
