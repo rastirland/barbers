@@ -64,10 +64,15 @@ window.onload = function() {
     if (dayOfWeek >= 1 && dayOfWeek <= 6 && hours >= 9 && hours < 18) {
       return true;
     // Check if it's Sunday and the store is open
-    } else if (dayOfWeek == 0 && hours >= 12 && hours < 19) {
+    } else if (dayOfWeek == 0 && hours >= 0 && hours < 0) {
       return true;
     // Otherwise, the store is closed
-    } else {
+    }
+
+// } else if (dayOfWeek == 0) {
+//     return false;
+//   }  // use if want to close all sunday
+     else {
       return false;
     }
   }
