@@ -306,23 +306,25 @@ select:focus {
   outline: none;
 }
 
-@media (max-width: 844px)  {
+@media only screen and (max-width: 375px) {
   select {
     font-size: 14px;
   }
 }
 
-@media (max-width: 844px)  {
+@media only screen and (min-width: 768px) {
   .mobile-only {
     display: none;
   }
 }
-
-@media (max-width: 844px)  {
+@media screen and (max-width: 991px) {
   .pricing-section {
     display: none;
   }
 }
+
+
+
 
 
 
