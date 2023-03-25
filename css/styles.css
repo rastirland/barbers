@@ -285,6 +285,47 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   text-decoration: none;
 }
 
+label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f9f9f9;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+select:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 375px) {
+  select {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .pricing-section {
+    display: none;
+  }
+}
+
+
+
+
 pre,
 code,
 kbd,
