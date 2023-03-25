@@ -114,6 +114,7 @@ body {
 
 @media (max-width: 828px) {
   .logo {
+    
     width: 25%;
     left: 75% /* adjust this value as needed */
   }
@@ -305,19 +306,19 @@ select:focus {
   outline: none;
 }
 
-@media only screen and (max-width: 375px) {
+@media (max-width: 844px)  {
   select {
     font-size: 14px;
   }
 }
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 844px)  {
   .mobile-only {
     display: none;
   }
 }
 
-@media screen and (max-width: 991px) {
+@media (max-width: 844px)  {
   .pricing-section {
     display: none;
   }
