@@ -116,6 +116,7 @@ body {
 @media (max-width: 428px) {
   .logo {
     width: 25%; /* adjust this value as needed */
+    left: 75%;
   }
 }
 
