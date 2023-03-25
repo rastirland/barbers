@@ -92,6 +92,16 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.team-member img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.team-member p {
+  margin-bottom: 0.5rem;
+}
 
 hr {
   margin: 1rem 0;
