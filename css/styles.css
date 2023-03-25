@@ -113,7 +113,7 @@ body {
 }
 
 /* Adjust logo size for iPhone 13 */
-@media screen and (min-width: 428px) and (max-width: 767px) {
+@media screen and (min-width: 428px) and (max-width: 967px) {
   .logo {
     width: 25%; /* adjust this value as needed */
     left: 75%;
