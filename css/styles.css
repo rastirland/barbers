@@ -106,14 +106,14 @@ body {
 .logo {
   position: fixed;
   top: 5rem;
-  left: 80%;
+  left: 10%;
   width: 10%; /* adjust this value to the width of your logo */
   height: auto; /* automatically adjust height based on width */
   z-index: 9999; /* make sure the logo is on top of all other elements */
 }
 
 /* Adjust logo size for iPhone 13 */
-@media (max-width: 428px) {
+@media screen and (min-width: 428px) and (max-width: 767px) {
   .logo {
     width: 25%; /* adjust this value as needed */
     left: 75%;
@@ -312,7 +312,7 @@ select:focus {
   }
 }
 
-@media only screen and (min-width: 576px) and (max-width: 2532x) {
+@media only screen and (min-width: 576px) and (max-width: 767px) {
   .mobile-only {
     display: none;
   }
