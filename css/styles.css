@@ -112,11 +112,10 @@ body {
   z-index: 9999; /* make sure the logo is on top of all other elements */
 }
 
-/* Adjust logo size for iPhone 13 */
-@media screen and (min-width: 428px) and (max-width: 967px) {
+@media (max-width: 828px) {
   .logo {
-    width: 25%; /* adjust this value as needed */
-    left: 75%;
+    width: 25%;
+    left: 75% /* adjust this value as needed */
   }
 }
 
