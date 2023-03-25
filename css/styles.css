@@ -312,11 +312,12 @@ select:focus {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 576px) and (max-width: 1024px) {
   .mobile-only {
     display: none;
   }
 }
+
 @media screen and (max-width: 991px) {
   .pricing-section {
     display: none;
