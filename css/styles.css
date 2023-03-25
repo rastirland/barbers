@@ -106,7 +106,7 @@ body {
 .logo {
   position: fixed;
   top: 5rem;
-  left: 10%;
+  left: 80%;
   width: 10%; /* adjust this value to the width of your logo */
   height: auto; /* automatically adjust height based on width */
   z-index: 9999; /* make sure the logo is on top of all other elements */
