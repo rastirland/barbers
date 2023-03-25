@@ -119,6 +119,12 @@ body {
   }
 }
 
+.fa-facebook-f, .fa-instagram {
+  font-size: 200%;
+  color: #aa3232;
+}
+
+
 
 hr {
   margin: 1rem 0;
