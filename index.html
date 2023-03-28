@@ -1,73 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>The Barber Lounge MK</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script type="text/javascript">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><meta name="description" content="" /><meta name="author" content="" />
+	<title>The Barber Lounge MK</title>
+	<link href="assets/favicon.ico" rel="icon" type="image/x-icon" /><!-- Font Awesome icons (free version)--><script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script><!-- Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" /><!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/styles.css" rel="stylesheet" /><script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script type="text/javascript">
             $(document).ready(function() {
                 $(document).bind("contextmenu",function(e) {
                     return false;
                 });
             });
-        </script>
+        </script><!-- <img src="assets/img/logo.jpeg" alt="Your Logo" class="logo">     -->
+        <script>
+window.addEventListener('DOMContentLoaded', event => {
 
-    <!-- <img src="assets/img/logo.jpeg" alt="Your Logo" class="logo">     -->
+    // Navbar shrink function
+    var navbarShrink = function () {
+        const navbarCollapsible = document.body.querySelector('#mainNav');
+        if (!navbarCollapsible) {
+            return;
+        }
+        if (window.scrollY === 0) {
+            navbarCollapsible.classList.remove('navbar-shrink')
+        } else {
+            navbarCollapsible.classList.add('navbar-shrink')
+        }
+
+    };
+
+    // Shrink the navbar 
+    navbarShrink();
+
+    // Shrink the navbar when page is scrolled
+    document.addEventListener('scroll', navbarShrink);
+
+    // Activate Bootstrap scrollspy on the main nav element
+    const mainNav = document.body.querySelector('#mainNav');
+    if (mainNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#mainNav',
+            offset: 74,
+        });
+    };
+
+    // Collapse responsive navbar when toggler is visible
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+    );
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+            if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
+            }
+        });
+    });
+
     
-    </head>
-    <img src="assets/img/logo.jpeg" alt="Your Logo" class="logo">  
-    <body id="page-top">
-        <!-- Navigation-->
+
+});
+
+window.onload = function() {
+    var statusEl = document.getElementById('status');
+    var isOpen = isOpenNow(); // Assume isOpenNow() returns true if the store is open
+    statusEl.textContent = isOpen ? 'Open' : 'Closed';
+    statusEl.style.color = isOpen ? '#00ff00' : '#ff0000'; // Change the color to green if open, and red if closed
+    statusEl.style.fontWeight = isOpen ? 'bold' : 'normal'; // Add bold font weight to the text if open
+  };
+  
+function isOpenNow() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var dayOfWeek = currentTime.getDay();
+  
+    // Check if it's Monday-Thursday and the store is open
+    if (dayOfWeek >= 1 && dayOfWeek <= 4 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 18) || (hours == 18 && minutes < 00))) {
+        return true;
+    // Check if it's Friday and the store is open
+    } else if (dayOfWeek == 5 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 19) || (hours == 19 && minutes < 00))) {
+      return true;
+    // Check if it's Saturday and the store is open
+    } else if (dayOfWeek == 6 && hours >= 9 && hours < 16) {
+      return true;
+    // Otherwise, the store is closed
+    } else {
+      return false;
+    }
+  }
+</script>
+</head>
+<body id="page-top">
+   
+<p><img alt="Your Logo" class="logo" src="assets/img/logo.jpeg" /><!-- Navigation--></p>
+
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-              <a class="navbar-brand" href="#page-top"></a>
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    
-                  <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#projects">Book Now</a></li>
-                   <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                  <li class="nav-item"><span id="status" class="nav-link"></span></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+<div class="container px-4 px-lg-5"><button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button">Menu</button>
 
-          
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">The barbers Lounge MK</h1>
-                        <br>
-                        <h2 class="mx-auto my-0 text-white-50">Opening April 1st</h1>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto">
+	<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+	<li class="nav-item"><a class="nav-link" href="#projects">Book Now</a></li>
+	<li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+	<li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+	<li class="nav-item"><span id="status" class="nav-link"></span></li>
+	
+</ul>
+</div>
+</div>
+</nav>
+<!-- Masthead-->
 
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-                        <a class="btn btn-primary" href="#about">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- <h1 class="mx-auto my-0 text-uppercase"><center>Opens April 1st</center></h1> -->
-        </header>
-   <!-- About-->
-<!-- <section class="about-section text-center" id="about">
+<header class="masthead">
+<div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+<div class="d-flex justify-content-center">
+<div class="text-center">
+<h1 class="mx-auto my-0 text-uppercase">The barbers Lounge MK</h1>
+&nbsp;
+
+<h2 class="mx-auto my-0 text-white-50">Opening April 1st</h2>
+
+<h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
+<a class="btn btn-primary" href="#about">Book Now</a></div>
+</div>
+</div>
+<!-- <h1 class="mx-auto my-0 text-uppercase"><center>Opens April 1st</center></h1> --></header>
+<!-- About--><!-- <section class="about-section text-center" id="about">
     <div class="container px-4 px-lg-5">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -101,440 +160,427 @@
         </div>
       </div>
     </div>
-  </section> -->
-  
-          
-        <!-- Projects-->
-        <section class="projects-section bg-light" id="projects">
-            <div class="container px-4 px-lg-5">
-                <!-- Featured Project Row-->
-                <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="..." /></div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Welcome</h4>
-                            <p class="text-black-50 mb-0">New Barbers coming to Stony, The Barbers Lounge is the place to be.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project One Row-->
-                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/tools2.jpg" alt="..." /></div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Transformation</h4>
-                                    <p class="mb-0 text-white-50">With our attention to detail and passion for grooming, The Barbers Lounge is the perfect place to trust with your hair and beard care needs.</p>
-                                    <hr class="d-none d-lg-block mb-0 ms-0" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Two Row-->
-                <div class="row gx-0 justify-content-center">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/testbottom.jpg" alt="..." /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Grooming</h4>
-                                    <p class="mb-0 text-white-50">Looking for a place where you can relax, unwind and get a fresh haircut or shave? Look no further than The Barbers Lounge, where our skilled barbers will provide you with the perfect grooming experience in a welcoming and stylish atmosphere.</p>
-                                    <hr class="d-none d-lg-block mb-0 me-0" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Pricing-->
+  </section> --><!-- Projects-->
+
+<section class="projects-section bg-light" id="projects">
+<div class="container px-4 px-lg-5"><!-- Featured Project Row-->
+<div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+<div class="col-xl-8 col-lg-7"><img alt="..." class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" /></div>
+
+<div class="col-xl-4 col-lg-5">
+<div class="featured-text text-center text-lg-left">
+<h4>Welcome</h4>
+
+<p class="text-black-50 mb-0">New Barbers coming to Stony, The Barbers Lounge is the place to be.</p>
+</div>
+</div>
+</div>
+<!-- Project One Row-->
+
+<div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+<div class="col-lg-6"><img alt="..." class="img-fluid" src="assets/img/tools2.jpg" /></div>
+
+<div class="col-lg-6">
+<div class="bg-black text-center h-100 project">
+<div class="d-flex h-100">
+<div class="project-text w-100 my-auto text-center text-lg-left">
+<h4 class="text-white">Transformation</h4>
+
+<p class="mb-0 text-white-50">With our attention to detail and passion for grooming, The Barbers Lounge is the perfect place to trust with your hair and beard care needs.</p>
+
+<hr class="d-none d-lg-block mb-0 ms-0" /></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Two Row-->
+
+<div class="row gx-0 justify-content-center">
+<div class="col-lg-6"><img alt="..." class="img-fluid" src="assets/img/testbottom.jpg" /></div>
+
+<div class="col-lg-6 order-lg-first">
+<div class="bg-black text-center h-100 project">
+<div class="d-flex h-100">
+<div class="project-text w-100 my-auto text-center text-lg-right">
+<h4 class="text-white">Grooming</h4>
+
+<p class="mb-0 text-white-50">Looking for a place where you can relax, unwind and get a fresh haircut or shave? Look no further than The Barbers Lounge, where our skilled barbers will provide you with the perfect grooming experience in a welcoming and stylish atmosphere.</p>
+
+<hr class="d-none d-lg-block mb-0 me-0" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing-->
+
 <section class="pricing-section bg-light" id="pricing">
-    <div class="container px-4 px-lg-5">
-        <div class="text-center">
-            
-            <h2 class="section-heading">Pricing</h2>
-            <hr class="my-4" />
-        </div>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Haircut</h5>
-                        <h6 class="card-price text-center">£18</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Classic haircut</li>
+<div class="container px-4 px-lg-5">
+<div class="text-center">
+<h2 class="section-heading">Pricing</h2>
+
+<hr class="my-4" /></div>
+
+<div class="row gx-4 gx-lg-5">
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Haircut</h5>
+
+<h6 class="card-price text-center">&pound;18</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Classic haircut</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Shampoo &amp; blow-dry</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Hot towel neck shave</li> -->
-                        </ul>
-                        <!-- <center>  <a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center> -->
-                      
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Skin Fade</h5>
-                        <h6 class="card-price text-center">£22</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Trim &amp; shape</li>
+</ul>
+<!-- <center>  <a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center> --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Skin Fade</h5>
+
+<h6 class="card-price text-center">&pound;22</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Trim &amp; shape</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Beard oil massage</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Hot towel treatment</li> -->
-                        </ul>
-                        <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Restyle</h5>
-                        <h6 class="card-price text-center">£25</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Traditional hot lather shave</li>
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center> --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Restyle</h5>
+
+<h6 class="card-price text-center">&pound;25</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Traditional hot lather shave</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Facial massage</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Hot towel treatment</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                        
-                    </div>
-                </div>
-                <p></p>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">12 & Under Skin Fade</h5>
-                        <h6 class="card-price text-center">£18</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Classic haircut</li>
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+
+<p></p>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">12 &amp; Under Skin Fade</h5>
+
+<h6 class="card-price text-center">&pound;18</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Classic haircut</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Trim &amp; shape</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Beard oil massage</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Hot towel treatment</li> -->
-                        </ul>
-                      <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>   -->
-                    </div>
-                </div>
-            </div>
-          
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">12 & Under Hair Cut</h5>
-                        <h6 class="card-price text-center">£15</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Consultation</li>
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>   --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">12 &amp; Under Hair Cut</h5>
+
+<h6 class="card-price text-center">&pound;15</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Consultation</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Full haircut and style</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Facial grooming</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Hot towel treatment</li> -->
-                        </ul>
-                      <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>   -->
-                    </div>
-                </div>
-            </div> 
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Beard Shaping</h5>
-                        <h6 class="card-price text-center">£10</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Hot towel & Beard Shapen</h5>
-                        <h6 class="card-price text-center">£15</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Hot Towel and Full Shave</h5>
-                        <h6 class="card-price text-center">£30</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Crew Cut</h5>
-                        <h6 class="card-price text-center">£10</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Faded Crew Cut</h5>
-                        <h6 class="card-price text-center">£15</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-bold text-uppercase text-center">Priority with Bookings</h5>
-                        <h6 class="card-price text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-                <br>
-                 <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center> 
-            </div>
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">65 & Over Hair Cut</h5>
-                        <h6 class="card-price text-center">£15</h6>
-                        <hr />
-                        <ul class="fa-ul">
-                            <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
-                        </ul>
-                       <!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  -->
-                    </div>
-                </div>
-                <p></p>
-            </div>
-              <hr class="my-4" />
-        </div>
-    </div>
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>   --></div>
+</div>
+</div>
 
-    
-</select>
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Beard Shaping</h5>
+
+<h6 class="card-price text-center">&pound;10</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Hot towel &amp; Beard Shapen</h5>
+
+<h6 class="card-price text-center">&pound;15</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Hot Towel and Full Shave</h5>
+
+<h6 class="card-price text-center">&pound;30</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Crew Cut</h5>
+
+<h6 class="card-price text-center">&pound;10</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">Faded Crew Cut</h5>
+
+<h6 class="card-price text-center">&pound;15</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-bold text-uppercase text-center">Priority with Bookings</h5>
+
+<h6 class="card-price text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+&nbsp;
+
+<center><a class="btn btn-block btn-primary text-uppercase" href="#signup">Book now</a></center>
+</div>
+
+<div class="col-lg-4">
+<div class="card mb-5 mb-lg-0">
+<div class="card-body">
+<h5 class="card-title text-muted text-uppercase text-center">65 &amp; Over Hair Cut</h5>
+
+<h6 class="card-price text-center">&pound;15</h6>
+
+<hr />
+<ul class="fa-ul"><!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>Expert consultation</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Customized haircut & styling</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Neck shave & hot towel treatment</li>
+                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Refreshing shampoo & conditioner</li> -->
+</ul>
+<!-- <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center>  --></div>
+</div>
+
+<p></p>
+</div>
+
+<hr class="my-4" /></div>
+</div>
 </section>
+
 <section class="pricing-section-m bg-light mobile-only" id="pricing">
-    <div class="container px-4 px-lg-5">
-      <div class="text-center">
-        <h2 class="section-heading"><center>Pricing</center></h2>
-        <hr class="my-4" />
-      </div>
-      <select name="pricing" id="pricing-select">
-        <option value="Hair Cut">£10 - Hair Cut (Click for all prices)</option>
-        <option value="Skin Fade">£22 - Skin Fade</option>
-        <option value="Restyle">£25 - Restyle</option>
-        <option value="12 & Under Skin Fade">£18 - 12 & Under Skin Fade</option>
-        <option value="12 & Under Skin Fade">£15 - 12 & Under Hair Cut</option>
-        <option value="12 & Under Skin Fade">£10 - Beard Shaping</option>
-        <option value="12 & Under Skin Fade">£15 - Hot Towel & Beard Shapen</option>
-        <option value="12 & Under Skin Fade">£30 - Hot Towel & Full Shave</option>
-        <option value="12 & Under Skin Fade">£10 - Crew Cut</option>
-        <option value="12 & Under Skin Fade">£15 - Faded Crew Cut</option>
-        <option value="12 & Under Skin Fade">£15 - 65 & over Hair Cut</option>
+<div class="container px-4 px-lg-5">
+<div class="text-center">
+<h2 class="section-heading"></h2>
 
-      </select>
-      <center><a href="#signup" class="btn btn-block btn-primary text-uppercase">Book now</a></center> 
-      <p></p>
-    </div>
-  </section>
-  
+<center>Pricing</center>
 
+<hr class="my-4" /></div>
+<select id="pricing-select" name="pricing"><option value="Hair Cut">&pound;18 - Hair Cut (Click for all prices)</option><option value="Skin Fade">&pound;22 - Skin Fade</option><option value="Restyle">&pound;25 - Restyle</option><option value="12 &amp; Under Skin Fade">&pound;18 - 12 &amp; Under Skin Fade</option><option value="12 &amp; Under Skin Fade">&pound;15 - 12 &amp; Under Hair Cut</option><option value="12 &amp; Under Skin Fade">&pound;10 - Beard Shaping</option><option value="12 &amp; Under Skin Fade">&pound;15 - Hot Towel &amp; Beard Shapen</option><option value="12 &amp; Under Skin Fade">&pound;30 - Hot Towel &amp; Full Shave</option><option value="12 &amp; Under Skin Fade">&pound;10 - Crew Cut</option><option value="12 &amp; Under Skin Fade">&pound;15 - Faded Crew Cut</option><option value="12 &amp; Under Skin Fade">&pound;15 - 65 &amp; over Hair Cut</option> </select>
+
+<center><a class="btn btn-block btn-primary text-uppercase" href="#signup">Book now</a></center>
+
+<p></p>
+</div>
+</section>
 
 <section class="about-section text-center" id="about">
-    <div class="container px-4 px-lg-5">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase text-white">Our Team</h2>
-          <h3 class="section-subheading text-muted">Meet the talented individuals who make our business a success.</h3>
-          <br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="team-member text-center">
-            <img class="img-fluid mb-3 mb-lg-0" src="assets/img/terry.jpg" alt="">
-            <hr class="my-4 mx-auto" />
-            <h4 class="text-white">Terry Jones</h4>
-            <h5 class="text-muted mb-4">Skilled Barber and Passionate Stylist</h5>
-            <p class="text-muted mb-5">With years of experience in the industry, Terry brings a level of expertise and dedication to his work that is truly inspiring. Whether he's helping clients find their perfect style or sharing his wealth of knowledge with aspiring barbers, Terry's commitment to his craft is a true testament to the power of hard work and determination.</p>
-            <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                    <a href="#">
-                        <a class="mx-1" href="https://www.facebook.com/lilj.c.t.jones" target="_blank"> <i class="fab fa-facebook-f"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">
-                        <a class="mx-1" href="https://www.instagram.com/_terryjones_____/" target="_blank">   <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-        <!-- Signup-->
-        <section class="signup-section" id="signup">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class="form-signup" id="contactForm" data-sb-form-api-token="5cb1b9c2-09ba-4dac-a5b4-d5163e341928">
-                            <!-- Email address input-->
-                            <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
-                            </div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3 mt-2 text-white">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact-->
-        <section class="contact-section bg-black">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-3 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">Unit 5, 75 high street,  <br> Stony stratford Mk11 1AYL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4 mx-auto" />
-                                <a href="mailto:thebarberslounge0@aol.com" class="small text-black-50">thebarberslounge0@aol.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">01908 739 557</div>
-                                <br>
-                                <i class="fab fa-whatsapp text-primary mb-2 whatsapp-icon"></i></a>
-                                <br>
-                                <div class="small text-black-50"><a href="https://wa.me/447557128665" target="blank">Whats App Us</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-clock text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Opening Hours</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">
-                                    <p>Mon - Thurs: 9.30 am - 6pm</p>
-                                    <p>Friday: 9.30am - 7pm</p>
-                                    <p>Saturday: 9am - 4pm</p>
-                                    <p>Sunday: <b>Closed</b></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social d-flex justify-content-center">
-                      
-                        <a class="mx-1" href="https://www.facebook.com/profile.php?id=100090899508493" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a class="mx-1" href="https://www.instagram.com/the_barbers_lounge01/" target="_blank"><i class="fab fa-instagram"></i></a>
+<div class="container px-4 px-lg-5">
+<div class="row">
+<div class="col-lg-12 text-center">
+<h2 class="section-heading text-uppercase text-white">Our Team</h2>
 
-                        
+<h3 class="section-subheading text-muted">Meet the talented individuals who make our business a success.</h3>
+</div>
+</div>
 
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; TheBarbersLoungeMK Website 2023</div></footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-            
-    </body>
+<div class="row">
+<div class="team-member text-center"><img alt="" class="img-fluid mb-3 mb-lg-0" src="assets/img/terry.jpg" />
+<hr class="my-4 mx-auto" />
+<h4 class="text-white">Terry Jones</h4>
+
+<h5 class="text-muted mb-4">Skilled Barber and Passionate Stylist</h5>
+
+<p class="text-muted mb-5">With years of experience in the industry, Terry brings a level of expertise and dedication to his work that is truly inspiring. Whether he&#39;s helping clients find their perfect style or sharing his wealth of knowledge with aspiring barbers, Terry&#39;s commitment to his craft is a true testament to the power of hard work and determination.</p>
+
+<ul class="list-inline social-buttons">
+	<li class="list-inline-item"></li>
+	<li class="list-inline-item"></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Signup-->
+
+<section class="signup-section" id="signup">
+<div class="container px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5">
+<div class="col-md-10 col-lg-8 mx-auto text-center">
+<h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+<!-- * * * * * * * * * * * * * * *--><!-- * * SB Forms Contact Form * *--><!-- * * * * * * * * * * * * * * *--><!-- This form is pre-integrated with SB Forms.--><!-- To make this form functional, sign up at--><!-- https://startbootstrap.com/solution/contact-forms--><!-- to get an API token!-->
+
+<form class="form-signup" data-sb-form-api-token="5cb1b9c2-09ba-4dac-a5b4-d5163e341928" id="contactForm"><!-- Email address input-->
+<div class="row input-group-newsletter">
+<div class="col"><input aria-label="Enter email address..." class="form-control" data-sb-validations="required,email" id="emailAddress" placeholder="Enter email address..." type="email" /></div>
+
+<div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+</div>
+
+<div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
+
+<div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
+<!-- Submit success message--><!-- This is what your users will see when the form--><!-- has successfully submitted-->
+
+<div class="d-none" id="submitSuccessMessage">
+<div class="text-center mb-3 mt-2 text-white">
+<div class="fw-bolder">Form submission successful!</div>
+</div>
+</div>
+<!-- Submit error message--><!-- This is what your users will see when there is--><!-- an error submitting the form-->
+
+<div class="d-none" id="submitErrorMessage">
+<div class="text-center text-danger mb-3 mt-2">Error sending message!</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact-->
+
+<section class="contact-section bg-black">
+<div class="container px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5">
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Address</h4>
+
+<hr class="my-4 mx-auto" />
+<div class="small text-black-50">Unit 5, 75 high street,<br />
+Stony stratford Mk11 1AYL</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Email</h4>
+
+<hr class="my-4 mx-auto" /><a class="small text-black-50" href="mailto:thebarberslounge0@aol.com">thebarberslounge0@aol.com</a></div>
+</div>
+</div>
+
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Phone</h4>
+
+<hr class="my-4 mx-auto" />
+<div class="small text-black-50">01908 739 557</div>
+&nbsp;
+
+<div class="small text-black-50"><a href="https://wa.me/447557128665" target="blank">Whats App Us</a></div>
+</div>
+</div>
+</div>
+
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Opening Hours</h4>
+
+<hr class="my-4 mx-auto" />
+<div class="small text-black-50">
+<p>Mon - Thurs: 9.30 am - 6pm</p>
+
+<p>Friday: 9.30am - 7pm</p>
+
+<p>Saturday: 9am - 4pm</p>
+
+<p>Sunday: <b>Closed</b></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="social d-flex justify-content-center"></div>
+</div>
+</div>
+</section>
+<!-- Footer-->
+
+<footer class="footer bg-black small text-center text-white-50">
+<div class="container px-4 px-lg-5">Copyright &copy; TheBarbersLoungeMK Website 2023</div>
+</footer>
+<!-- Bootstrap core JS--><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script><!-- Core theme JS--><script src="js/scripts.js"></script><script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script></body>
 </html>

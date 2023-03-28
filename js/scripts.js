@@ -1,3 +1,5 @@
+var statusEl = document.getElementById('statusEl');
+statusEl.innerText = 'The status is OK';
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -48,52 +50,35 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 window.onload = function() {
-    var statusEl = document.getElementById('status');
+  var statusEl = document.getElementById('status');
+  if (statusEl) {
     var isOpen = isOpenNow(); // Assume isOpenNow() returns true if the store is open
     statusEl.textContent = isOpen ? 'Open' : 'Closed';
     statusEl.style.color = isOpen ? '#00ff00' : '#ff0000'; // Change the color to green if open, and red if closed
     statusEl.style.fontWeight = isOpen ? 'bold' : 'normal'; // Add bold font weight to the text if open
-  };
-  
-//   function isOpenNow() {
-//     var currentTime = new Date();
-//     var hours = currentTime.getHours();
-//     var minutes = currentTime.getMinutes();
-//     var dayOfWeek = currentTime.getDay();
-//     // Check if it's Monday - Saturday and the store is open
-//     if (dayOfWeek >= 1 && dayOfWeek <= 6 && hours >= 9 && hours < 18) {
-//       return true;
-//     // Check if it's Sunday and the store is open
-//     } else if (dayOfWeek == 0 && hours >= 0 && hours < 0) {
-//       return true;
-//     // Otherwise, the store is closed
-//     }
-
-// // } else if (dayOfWeek == 0) {
-// //     return false;
-// //   }  // use if want to close all sunday
-//      else {
-//       return false;
-//     }
-//   }
+  }
+};
 
 function isOpenNow() {
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var dayOfWeek = currentTime.getDay();
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var dayOfWeek = currentTime.getDay();
   
-    // Check if it's Monday-Thursday and the store is open
-    if (dayOfWeek >= 1 && dayOfWeek <= 4 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 18) || (hours == 18 && minutes < 00))) {
-        return true;
-    // Check if it's Friday and the store is open
-    } else if (dayOfWeek == 5 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 19) || (hours == 19 && minutes < 00))) {
+  // Check if it's Monday-Thursday and the store is open
+  if (dayOfWeek >= 1 && dayOfWeek <= 4 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 18) || (hours == 18 && minutes < 00))) {
       return true;
-    // Check if it's Saturday and the store is open
-    } else if (dayOfWeek == 6 && hours >= 9 && hours < 16) {
-      return true;
-    // Otherwise, the store is closed
-    } else {
-      return false;
-    }
+  // Check if it's Friday and the store is open
+  } else if (dayOfWeek == 5 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 19) || (hours == 19 && minutes < 00))) {
+    return true;
+  // Check if it's Saturday and the store is open
+  } else if (dayOfWeek == 6 && hours >= 9 && hours < 16) {
+    return true;
+  // Otherwise, the store is closed
+  } else {
+    return false;
   }
+}
+
+  
+ 
