@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RuneScape High Scores</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 40%;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      th {
+        background-color: #e53710;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RuneScape High Scores</h1>
+    <form>
+      <label for="username">Enter your RuneScape username:</label>
+      <input type="text" id="username" name="username">
+      <button type="button" onclick="getHighScores()">Search</button>
+    </form>
+    <table id="highscores">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Rank</th>
+          <th>Level</th>
+          <th>XP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be added dynamically by the script -->
+      </tbody>
+    </table>
+    <script>
+      function getHighScores() {
+        // Get the username entered by the user
+        const username = document.getElementById('username').value;
+
+        // Construct the URL for the API request
+       // const apiUrl = `https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=${username}`;
+
+       const apiUrl = `https://cors-anywhere.herokuapp.com/https://secure.runescape.com/m=hiscore/index_lite.ws?player=${username}`;
+
+
+        // Make the API request using fetch
+        fetch(apiUrl)
+          .then(response => response.text())
+          .then(data => {
+            // Parse the response data into an array of high scores
+            const skills = ['Overall', 'Attack', 'Defence', 'Strength', 'Hitpoints', 'Ranged',
+             'Prayer', 'Magic', 'Cooking', 'Woodcutting', 'Fletching', 'Fishing', 'Firemaking', 
+             'Crafting', 'Smithing', 'Mining', 'Herblore', 'Agility', 'Thieving', 'Slayer', 'Farming', 
+             'Runecrafting', 'Hunter', 'Construction', "Summoning", "Dungeneering", "Divination" , "invention", "Archegology"];
+            const scores = data.split('\n').slice(0, skills.length);
+
+            // Update the table with the high scores
+            const tbody = document.querySelector('#highscores tbody');
+            tbody.innerHTML = '';
+            scores.forEach((score, index) => {
+              const [rank, level, xp] = score.split(',');
+              const skill = skills[index];
+              tbody.innerHTML += `
+                <tr>
+                  <td>${skill}</td>
+                  <td>${rank}</td>
+                  <td>${level}</td>
+                  <td>${xp}</td>
+                </tr>
+              `;
+            });
+          })
+          .catch(error => {
+            // Display an error message if the API request fails
+            const tbody = document.querySelector('#highscores tbody');
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="4">Error: ${error.message}</td>
+              </tr>
+            `;
+          });
+      }
+    </script>
+  </body>
+</html>
