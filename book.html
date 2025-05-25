@@ -10,10 +10,10 @@
 	<link href="css/styles.css" rel="stylesheet" /><script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script type="text/javascript">
             $(document).ready(function() {
                 $(document).bind("contextmenu",function(e) {
-                    return false;
+                    return true;
                 });
             });
-        </script><!-- <img src="assets/img/logo.jpeg" alt="Your Logo" class="logo">     -->
+        </script><img src="assets/img/logo.jpeg" alt="Your Logo" class="logo">    
         <script>
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -95,111 +95,91 @@ function isOpenNow() {
 </head>
 <body id="page-top">
    
-<!-- Navigation-->
-<!-- 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-<div class="container px-4 px-lg-5"><button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button">Menu</button>
-
-<div class="collapse navbar-collapse" id="navbarResponsive">
-<ul class="navbar-nav ms-auto">
-	<li class="nav-item"><a class="nav-link" href="#about">Team</a></li>
-	<li class="nav-item"><a class="nav-link" href="#booking">Book Now</a></li>
-	<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-	<li class="nav-item"><span id="status" class="nav-link"></span></li>
-	
-</ul>
-</div>
-</div>
-</nav> -->
-<!-- Masthead-->
-<!-- 
-<header class="masthead">
-<div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-<div class="d-flex justify-content-center">
-<div class="text-center">
-<h1 class="mx-auto my-0 text-uppercase">The barbers Lounge MK</h1>
-&nbsp;
-<br>
-
-<img src="assets/img/logo.jpeg" alt="Your Logo" class="logo" width="30%">   
-
-<h2 class="mx-auto my-0 text-white-50">Open Now</h2>
-<br>
-<p></p>
-<div class="download-links">
-  <a href="http://play.google.com/store/apps/details?id=com.nearcut.thebarbersloungemk" style="display: inline-block; vertical-align: middle;">
-    <img src="assets/img/android.png" alt="Download for Android">
-
-  </a>
-  <a href="http://apps.apple.com/gb/app/the-barbers-lounge-mk/id6479361852?uo=4" style="display: inline-block; vertical-align: middle;">
-    <img src="assets/img/apple.png" alt="Download for Apple">
-  </a>
-</div>
 
 
-</div>
-</div> -->
-<!-- <h1 class="mx-auto my-0 text-uppercase"><center>Opens April 1st</center></h1> --></header>
-<!-- About--><!-- <section class="about-section text-center" id="about">
-    <div class="container px-4 px-lg-5">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase text-white">Our Team</h2>
-          <h3 class="section-subheading text-muted">Meet the talented individuals who make our business a success.</h3>
-          <br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member text-center">
-            <img class="img-fluid mb-3 mb-lg-0" src="assets/img/terry.jpg" alt="">
-            <hr class="my-4 mx-auto" />
-            <h4 class="text-white">Terry Jones</h4>
-            <h5 class="text-muted mb-4">Skilled Barber and Passionate Stylist</h5>
-            <p class="text-muted mb-5">With years of experience in the industry, Terry brings a level of expertise and dedication to his work that is truly inspiring. Whether he's helping clients find their perfect style or sharing his wealth of knowledge with aspiring barbers, Terry's commitment to his craft is a true testament to the power of hard work and determination.</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-    
-                <a href="#">
-                    <a class="mx-1" href="https://www.facebook.com/lilj.c.t.jones" target="_blank"> <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                    <a class="mx-1" href="https://www.instagram.com/_terryjones_____/" target="_blank">   <i class="fab fa-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> --><!-- Projects-->
-
-
-    
-          <!--<div class="col-lg-4">-->
-          <!--  <div class="team-member text-center">-->
-          <!--    <img alt="" class="img-fluid mb-3 mb-lg-0" src="assets/img/joey.jpg" />-->
-          <!--    <hr class="my-4 mx-auto" />-->
-          <!--    <h4 class="text-white">Joey</h4>-->
-          <!--    <h5 class="text-muted mb-4"><i class="fa fa-instagram" style="font-size:48px;color:red"></i></h5>-->
-          <!--    <p class="text-muted mb-5"></p>-->
-          <!--    <ul class="list-inline social-buttons">-->
-          <!--      <li class="list-inline-item"></li>-->
-          <!--      <li class="list-inline-item"></li>-->
-          <!--    </ul>-->
-          <!--  </div>-->
-          <!-- </div>
-    
-        </div>
-      </div>
-    </section> -->
 
 <!-- Book-->
 <!-- Nearcut-->
- <p></p>
 <section class="sign-up-section text-center" id="booking">
 <script nonce="4WfiqsFusaOGBFAfb15JvA==" src="https://nearcut.com/secure_widget.js"></script>
   <div id="nearcut" data-domain="https://iframe-33540.nearcut.com"></div>
 
+</section>
+
+<!-- Contact-->
+
+<section class="contact-section bg-black" id="contact">
+<div class="container px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5">
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Address</h4>
+
+<hr class="my-4 mx-auto" />
+<div class="small text-black-50">Unit 5, 75 high street,<br />
+Stony stratford Mk11 1AYL</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Email</h4>
+
+<hr class="my-4 mx-auto" /><a class="small text-black-50" href="mailto:thebarberslounge0@aol.com">info@thebarbersloungemk.com</a></div>
+</div>
+</div>
+
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Phone</h4>
+
+<hr class="my-4 mx-auto" />
+<div class="small text-black-50">01908 014 335</div>
+&nbsp;
+
+<div class="small text-black-50"><a href="https://wa.me/447519560500" target="blank">Whats App Us</a></div>
+</div>
+</div>
+</div>
+
+<div class="col-md-3 mb-3 mb-md-0">
+<div class="card py-4 h-100">
+<div class="card-body text-center">
+<h4 class="text-uppercase m-0">Opening Hours</h4>
+
+<hr class="my-4 mx-auto" />
+<div class="small text-black-50">
+<p>Mon - Thurs: 9.30 am - 6pm</p>
+
+<p>Friday: 9.30am - 7pm</p>
+
+<p>Saturday: 9am - 4pm</p>
+
+<p>Sunday: <b>Closed</b></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="social d-flex justify-content-center"></div>
+</div>
+</div>
+</section>
+<script type="text/javascript"> //<![CDATA[
+  var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");
+  document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+//]]></script>
+<script language="JavaScript" type="text/javascript">
+  TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");
+</script>
+<!-- Footer-->
+
+<footer class="footer bg-black small text-center text-white-50">
+<div class="container px-4 px-lg-5">Copyright &copy; TheBarbersLoungeMK 2023</div>
+</footer>
+<!-- Bootstrap core JS--><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script><!-- Core theme JS--><script src="js/scripts.js"></script><script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script></body>
+</html>
