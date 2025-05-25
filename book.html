@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><meta name="description" content="" /><meta name="author" content="" />
+	<title>The Barber Lounge MK</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" /><!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/styles.css" rel="stylesheet" /><script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(document).bind("contextmenu",function(e) {
+                    return false;
+                });
+            });
+        </script><!-- <img src="assets/img/logo.jpeg" alt="Your Logo" class="logo">     -->
+        <script>
+window.addEventListener('DOMContentLoaded', event => {
+
+    // Navbar shrink function
+    var navbarShrink = function () {
+        const navbarCollapsible = document.body.querySelector('#mainNav');
+        if (!navbarCollapsible) {
+            return;
+        }
+        if (window.scrollY === 0) {
+            navbarCollapsible.classList.remove('navbar-shrink')
+        } else {
+            navbarCollapsible.classList.add('navbar-shrink')
+        }
+
+    };
+
+    // Shrink the navbar 
+    navbarShrink();
+
+    // Shrink the navbar when page is scrolled
+    document.addEventListener('scroll', navbarShrink);
+
+    // Activate Bootstrap scrollspy on the main nav element
+    const mainNav = document.body.querySelector('#mainNav');
+    if (mainNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#mainNav',
+            offset: 74,
+        });
+    };
+
+    // Collapse responsive navbar when toggler is visible
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+    );
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+            if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
+            }
+        });
+    });
+
+    
+
+});
+
+window.onload = function() {
+    var statusEl = document.getElementById('status');
+    var isOpen = isOpenNow(); // Assume isOpenNow() returns true if the store is open
+    statusEl.textContent = isOpen ? 'Open' : 'Closed';
+    statusEl.style.color = isOpen ? '#00ff00' : '#ff0000'; // Change the color to green if open, and red if closed
+    statusEl.style.fontWeight = isOpen ? 'bold' : 'normal'; // Add bold font weight to the text if open
+  };
+  
+function isOpenNow() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var dayOfWeek = currentTime.getDay();
+  
+    // Check if it's Monday-Thursday and the store is open
+    if (dayOfWeek >= 1 && dayOfWeek <= 4 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 18) || (hours == 18 && minutes < 00))) {
+        return true;
+    // Check if it's Friday and the store is open
+    } else if (dayOfWeek == 5 && ((hours == 9 && minutes >= 30) || (hours > 9 && hours < 19) || (hours == 19 && minutes < 00))) {
+      return true;
+    // Check if it's Saturday and the store is open
+    } else if (dayOfWeek == 6 && hours >= 9 && hours < 16) {
+      return true;
+    // Otherwise, the store is closed
+    } else {
+      return false;
+    }
+  }
+</script>
+</head>
+<body id="page-top">
+   
+<!-- Navigation-->
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<div class="container px-4 px-lg-5"><button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button">Menu</button>
+
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto">
+	<li class="nav-item"><a class="nav-link" href="#about">Team</a></li>
+	<li class="nav-item"><a class="nav-link" href="#booking">Book Now</a></li>
+	<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+	<li class="nav-item"><span id="status" class="nav-link"></span></li>
+	
+</ul>
+</div>
+</div>
+</nav> -->
+<!-- Masthead-->
+<!-- 
+<header class="masthead">
+<div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+<div class="d-flex justify-content-center">
+<div class="text-center">
+<h1 class="mx-auto my-0 text-uppercase">The barbers Lounge MK</h1>
+&nbsp;
+<br>
+
+<img src="assets/img/logo.jpeg" alt="Your Logo" class="logo" width="30%">   
+
+<h2 class="mx-auto my-0 text-white-50">Open Now</h2>
+<br>
+<p></p>
+<div class="download-links">
+  <a href="http://play.google.com/store/apps/details?id=com.nearcut.thebarbersloungemk" style="display: inline-block; vertical-align: middle;">
+    <img src="assets/img/android.png" alt="Download for Android">
+
+  </a>
+  <a href="http://apps.apple.com/gb/app/the-barbers-lounge-mk/id6479361852?uo=4" style="display: inline-block; vertical-align: middle;">
+    <img src="assets/img/apple.png" alt="Download for Apple">
+  </a>
+</div>
+
+
+</div>
+</div> -->
+<!-- <h1 class="mx-auto my-0 text-uppercase"><center>Opens April 1st</center></h1> --></header>
+<!-- About--><!-- <section class="about-section text-center" id="about">
+    <div class="container px-4 px-lg-5">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase text-white">Our Team</h2>
+          <h3 class="section-subheading text-muted">Meet the talented individuals who make our business a success.</h3>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member text-center">
+            <img class="img-fluid mb-3 mb-lg-0" src="assets/img/terry.jpg" alt="">
+            <hr class="my-4 mx-auto" />
+            <h4 class="text-white">Terry Jones</h4>
+            <h5 class="text-muted mb-4">Skilled Barber and Passionate Stylist</h5>
+            <p class="text-muted mb-5">With years of experience in the industry, Terry brings a level of expertise and dedication to his work that is truly inspiring. Whether he's helping clients find their perfect style or sharing his wealth of knowledge with aspiring barbers, Terry's commitment to his craft is a true testament to the power of hard work and determination.</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+    
+                <a href="#">
+                    <a class="mx-1" href="https://www.facebook.com/lilj.c.t.jones" target="_blank"> <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                    <a class="mx-1" href="https://www.instagram.com/_terryjones_____/" target="_blank">   <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> --><!-- Projects-->
+
+
+    
+          <!--<div class="col-lg-4">-->
+          <!--  <div class="team-member text-center">-->
+          <!--    <img alt="" class="img-fluid mb-3 mb-lg-0" src="assets/img/joey.jpg" />-->
+          <!--    <hr class="my-4 mx-auto" />-->
+          <!--    <h4 class="text-white">Joey</h4>-->
+          <!--    <h5 class="text-muted mb-4"><i class="fa fa-instagram" style="font-size:48px;color:red"></i></h5>-->
+          <!--    <p class="text-muted mb-5"></p>-->
+          <!--    <ul class="list-inline social-buttons">-->
+          <!--      <li class="list-inline-item"></li>-->
+          <!--      <li class="list-inline-item"></li>-->
+          <!--    </ul>-->
+          <!--  </div>-->
+          <!-- </div>
+    
+        </div>
+      </div>
+    </section> -->
+
+<!-- Book-->
+<!-- Nearcut-->
+ <p></p>
+<section class="sign-up-section text-center" id="booking">
+<script nonce="4WfiqsFusaOGBFAfb15JvA==" src="https://nearcut.com/secure_widget.js"></script>
+  <div id="nearcut" data-domain="https://iframe-33540.nearcut.com"></div>
+
