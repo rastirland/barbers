@@ -11943,3 +11943,25 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+.clear-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: red;
+  border: 2px solid red;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background-color: rgba(255, 0, 0, 0.1); /* light red on hover */
+}
+
+.clear-button:active {
+  background-color: rgba(255, 0, 0, 0.2); /* slightly darker on click */
+}
